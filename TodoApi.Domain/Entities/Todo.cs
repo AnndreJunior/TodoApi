@@ -19,4 +19,9 @@ public class Todo
         if (title.Length == 0 || title == null)
             throw new InvalidDataException("Informe sua tarefa");
     }
+
+    public void CompleteTask()
+    {
+        IsComplete = true;
+    }
 }
