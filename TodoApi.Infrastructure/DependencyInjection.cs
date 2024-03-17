@@ -21,6 +21,7 @@ public static class DependencyInjection
     public static WebApplicationBuilder AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ICreateTodoRepository, CreateTodoRepository>();
+        builder.Services.AddScoped<IGetAllTodosRepository, GetAllTodosRepository>();
 
         return builder;
     }
