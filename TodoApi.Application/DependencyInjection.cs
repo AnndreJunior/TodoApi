@@ -10,6 +10,7 @@ public static class DependencyInjection
     {
         builder.Services.AddScoped<CreateTodoUseCase>();
         builder.Services.AddScoped<GetAllTodosUseCase>();
+        builder.Services.AddScoped<CompleteTodoUseCase>();
 
         return builder;
     }
