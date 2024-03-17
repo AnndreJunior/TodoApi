@@ -9,6 +9,7 @@ public static class DependencyInjection
     public static WebApplicationBuilder UseApplication(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<CreateTodoUseCase>();
+        builder.Services.AddScoped<GetAllTodosUseCase>();
 
         return builder;
     }
