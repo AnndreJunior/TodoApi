@@ -23,6 +23,7 @@ public static class DependencyInjection
         builder.Services.AddScoped<ICreateTodoRepository, CreateTodoRepository>();
         builder.Services.AddScoped<IGetAllTodosRepository, GetAllTodosRepository>();
         builder.Services.AddScoped<ICompleteTodoRepository, CompleteTodoRepository>();
+        builder.Services.AddScoped<IDeleteTodoRepository, DeleteTodoRepository>();
 
         return builder;
     }
