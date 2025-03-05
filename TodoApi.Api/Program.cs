@@ -2,12 +2,21 @@ using TodoApi.Application;
 using TodoApi.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+var allowedHosts = builder.Configuration["AllowedHosts"]!;
 
 // Add services to the container.
 builder
     .AddDbContext()
     .AddRepositories()
     .UseApplication();
+
+builder.Services.AddCors(opts =>
+{
+    opts.AddDefaultPolicy(policy => policy
+        .WithOrigins(allowedHosts)
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,6 +33,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
